@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Fastapi + curls two shells",
+    "command": "/home/yury/.dotfiles/dmenu/velvet-curls-two.sh"
+  },
+  {
+    "name": "Fastapi shell",
+    "command": "/home/yury/.dotfiles/dmenu/velvet-env.sh"
+  },
+  {
+    "name": "Crypt curls shell",
+    "command": "/home/yury/.dotfiles/dmenu/velvet-env-curls.sh"
+  }
+]

@@ -1,0 +1,5 @@
+# inspired by
+# https://stackoverflow.com/a/3531426
+
+. ~/.bashrc
+conda activate fastapi

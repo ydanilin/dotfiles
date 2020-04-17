@@ -1,0 +1,84 @@
+
+
+
+Repo creation:
+cd ~/.dotfiles # replace with the path to your dotfiles
+git init # initialize repository if needed
+git submodule add https://github.com/anishathalye/dotbot
+git config -f .gitmodules submodule.dotbot.ignore dirty # ignore dirty commits in the submodule
+cp dotbot/tools/git-submodule/install .
+touch install.conf.yaml
+git submodule add https://github.com/moustacheful/myrmidon
+git config -f .gitmodules submodule.myrmidon.ignore dirty
+
+
+
+Dotbot:
+https://github.com/anishathalye/dotbot
+
+Sobolev:
+https://github.com/sobolevn/dotfiles
+
+Awesome dotfiles:
+https://github.com/webpro/awesome-dotfiles
+
+
+Pirogov dotfiles:
+https://github.com/astynax/dotfiles
+
+
+How to add command to install packages
+https://github.com/mattjmorrison/dotfiles/blob/master/install-scripts/Linux/install-packages.sh
+
+
+https://i3wm.org/docs/layout-saving.html
+https://github.com/klaxalk/i3-layout-manager
+
+
+
+https://unix.stackexchange.com/questions/96798/i3wm-start-applications-on-specific-workspaces-when-i3-starts
+
+https://laurvas.ru/dmenu/
+https://www.linux.org.ru/forum/desktop/14986652
+
+
+Rofi:
+https://github.com/davatorium/rofi
+
+
+https://askubuntu.com/questions/640096/how-do-i-check-which-terminal-i-am-using
+
+
+
+which x-terminal-emulator = /usr/bin/x-terminal-emulator
+ls -l /usr/bin/x-terminal-emulator = /usr/bin/x-terminal-emulator -> /etc/alternatives/x-terminal-emulator
+ls -l /etc/alternatives/x-terminal-emulator = /etc/alternatives/x-terminal-emulator -> /usr/bin/gnome-terminal.wrapper
+
+
+
+
+https://github.com/moustacheful/myrmidon
+
+
+xprop:
+
+WM_NAME(STRING) = "yury@vavilen: ~/dev/pitonizm/velvet"
+WM_WINDOW_ROLE(STRING) = "gnome-terminal-window-ef5c0f0e-271e-4a6a-89e2-92720f80593b"
+WM_CLASS(STRING) = "gnome-terminal-server", "Gnome-terminal"
+_NET_WM_NAME(UTF8_STRING) = "yury@vavilen: ~/dev/pitonizm/velvet"
+
+
+WM_NAME(STRING) = "yury@vavilen: ~/dev/pitonizm/velvet/prototypes/curls"
+WM_WINDOW_ROLE(STRING) = "gnome-terminal-window-a15a2790-c8bf-4f9d-8c67-5cae8c8d0c79"
+WM_CLASS(STRING) = "gnome-terminal-server", "Gnome-terminal"
+_NET_WM_NAME(UTF8_STRING) = "yury@vavilen: ~/dev/pitonizm/velvet/prototypes/curls"
+
+try to set:
+--role=velvet-fastapi-terminal-gnome
+
+i3-msg "workspace 4; append_layout ~/.dotfiles/i3/velvetstyle.json"
+
+
+Dconf database file
+https://unix.stackexchange.com/a/199864
+https://askubuntu.com/a/774400
