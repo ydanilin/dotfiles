@@ -3,7 +3,7 @@
 # Script to show current keyboard layout in i3status bar
 # Requires https://github.com/Zebradil/xkb-switch-i3
 
-i3status | while :
+i3status -c "$1/status" | while :
 do
     read line
 
