@@ -1,6 +1,8 @@
 - link:
     # i3
-    ~/.config/i3/config: i3/config
+    ~/.config/i3/config:
+        force: true
+        path: i3/config
     ~/.config/i3/i3status.sh: i3/i3status.sh
     ~/.config/i3/brichange.sh: i3/brichange.sh
     ~/.config/i3/volchange.sh: i3/volchange.sh
