@@ -5,9 +5,10 @@ git init
 git remote add origin https://github.com/ydanilin/dotfiles.git
 git fetch origin
 git merge origin/master
+# nado li?
 git submodule update --init --recursive
-sudo ln -s ~/.dotfiles/.yadm-project/yadm /usr/bin/yadm
-
+./install
+./install-packages.sh
 
 
 Repo creation:
@@ -15,9 +16,10 @@ First time (once):
 cd ~/.dotfiles # replace with the path to your dotfiles
 git init # initialize repository if needed
 
-git submodule add https://github.com/TheLocehiliosan/yadm.git .yadm-project
-git submodule update --init --recursive
-sudo ln -s ~/.dotfiles/.yadm-project/yadm /usr/bin/yadm
+git submodule add https://github.com/anishathalye/dotbot
+git config -f .gitmodules submodule.dotbot.ignore dirty
+cp dotbot/tools/git-submodule/install .
+touch install.conf.yaml
 
 
 git submodule add https://github.com/moustacheful/myrmidon
