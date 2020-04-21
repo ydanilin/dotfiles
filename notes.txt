@@ -96,3 +96,5 @@ i3-msg "workspace 4; append_layout ~/.dotfiles/i3/velvetstyle.json"
 Dconf database file
 https://unix.stackexchange.com/a/199864
 https://askubuntu.com/a/774400
+
+https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data

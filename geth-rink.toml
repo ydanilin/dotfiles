@@ -1,0 +1,9 @@
+
+# Test config file
+# use geth --needed-option dumpconfig to see how it will be in the file
+
+[Eth]
+NetworkId = 4
+
+[Node]
+DataDir = "/depot/ethdb/rinkeby"
