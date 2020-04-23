@@ -5,5 +5,8 @@
 [Eth]
 NetworkId = 4
 
+[Eth.Ethash]
+DatasetDir = "/depot/ethdb/rinkeby/.ethash"
+
 [Node]
 DataDir = "/depot/ethdb/rinkeby"

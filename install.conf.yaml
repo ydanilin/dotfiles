@@ -7,3 +7,7 @@
     ~/.config/i3/brichange.sh: i3/brichange.sh
     ~/.config/i3/volchange.sh: i3/volchange.sh
     ~/.config/i3/status: i3/status
+    # ranger
+    ~/.config/ranger/bookmarks: ranger/bookmarks
+    # vim
+    ~/.selected_editor: .selected_editor
