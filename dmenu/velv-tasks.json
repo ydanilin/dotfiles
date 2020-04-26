@@ -8,7 +8,7 @@
     "command": "/home/yury/.dotfiles/dmenu/velvet-env.sh"
   },
   {
-    "name": "Crypt curls shell",
+    "name": "Test curls shell",
     "command": "/home/yury/.dotfiles/dmenu/velvet-env-curls.sh"
   }
 ]

@@ -98,3 +98,10 @@ https://unix.stackexchange.com/a/199864
 https://askubuntu.com/a/774400
 
 https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data
+
+https://www.arnnet.com.au/article/671427/how-use-poetry-manage-python-projects/
+https://www.pythoncheatsheet.org/blog/python-projects-with-poetry-and-vscode-part-1/
+https://github.com/python-poetry/poetry/issues/536#issuecomment-531591757
+
+
+

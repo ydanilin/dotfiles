@@ -1,21 +1,30 @@
 #!/bin/bash
 
+
+# This is a desired Python version to be installed
+PY_VERSION=3.7.7
+
+
 sudo apt-get update
+
 
 # rofi
 if ! type -p rofi > /dev/null; then
     sudo apt -y install rofi
 fi
 
+
 # jq
 if ! type -p jq > /dev/null; then
     sudo apt -y install jq
 fi
 
+
 # make
 if ! type -p make > /dev/null; then
     sudo apt -y install make
 fi
+
 
 # for xkb-switch-i3
 if ! type -p cmake > /dev/null; then
@@ -44,6 +53,7 @@ if ! type -p xkb-switch > /dev/null; then
     i3-msg -t command restart
 fi
 
+
 # gnome-terminal settings
 dconf write /org/gnome/terminal/legacy/default-show-menubar false
 dconf write /org/gnome/terminal/legacy/menu-accelerator-enabled false
@@ -56,6 +66,7 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ foreground-color 'rgb(0,255,0)'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ palette "['rgb(46,52,54)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']"
 
+
 # ranger
 if ! type -p xsel > /dev/null; then
     sudo apt -y install xsel
@@ -64,7 +75,51 @@ if ! type -p ranger > /dev/null; then
     sudo apt -y install ranger
 fi
 
+
 # vim
 if ! type -p vim > /dev/null; then
     sudo apt -y install vim
 fi
+
+
+# Poetry
+if ! type -p poetry > /dev/null; then
+    mkdir -p ~/distrib && cd ~/distrib
+    curl -sSL -o get-poetry.py https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py
+    python3 get-poetry.py
+    # this neede to point Poetry to system python3 instead of 2
+    sed -i "s%^#\!/usr/bin/env python$%#\!/usr/bin/env python3%" $(which poetry)
+fi
+
+
+# PYTHON
+# Evaluate current system Python into $SYS_PY_VERSION
+sys_pit=$(/usr/bin/python3 --version)
+read pit SYS_PY_VERSION <<< "${sys_pit// / }"
+# Do install
+# if ! update-alternatives --list pythonnn > /dev/null 2>&1; then
+    if [ ! -f "/usr/local/bin/python${PY_VERSION::-2}" ]; then
+        # https://hackersandslackers.com/multiple-versions-python-ubuntu/
+        if ! dpkg -s build-essential >/dev/null 2>&1; then
+          sudo apt -y install build-essential
+        fi
+        if ! dpkg -s checkinstall >/dev/null 2>&1; then
+          sudo apt -y install checkinstall
+        fi
+        pkgs='libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev'
+        if ! dpkg -s $pkgs >/dev/null 2>&1; then
+          sudo apt -y install $pkgs
+        fi
+        mkdir -p ~/distrib && cd ~/distrib
+        wget https://www.python.org/ftp/python/${PY_VERSION}/Python-${PY_VERSION}.tgz
+        tar xzf Python-${PY_VERSION}.tgz
+        cd Python-${PY_VERSION}
+        ./configure --enable-optimizations
+        sudo make altinstall
+        # sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+        # sudo update-alternatives --install /usr/bin/python python /usr/bin/python${SYS_PY_VERSION::-2} 2
+        # sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python${PY_VERSION::-2} 3
+    # else
+        # echo -e "\e[1;31mWarning!\e[0m \e[31mPython executable of desired version ${PY_VERSION::-2} exists but not in alternatives!\e[0m"
+    fi
+# fi
