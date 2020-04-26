@@ -7,6 +7,11 @@ PY_VERSION=3.7.7
 
 sudo apt-get update
 
+# curl
+if ! type -p curl > /dev/null; then
+    sudo apt -y install curl
+fi
+
 
 # rofi
 if ! type -p rofi > /dev/null; then
@@ -82,12 +87,20 @@ if ! type -p vim > /dev/null; then
 fi
 
 
+# System Python3 libraries
+# python3-distutils
+if ! dpkg -s python3-distutils >/dev/null 2>&1; then
+  sudo apt -y install python3-distutils
+fi
+
+
 # Poetry
 if ! type -p poetry > /dev/null; then
     mkdir -p ~/distrib && cd ~/distrib
     curl -sSL -o get-poetry.py https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py
     python3 get-poetry.py
     # this neede to point Poetry to system python3 instead of 2
+    source $HOME/.poetry/env
     sed -i "s%^#\!/usr/bin/env python$%#\!/usr/bin/env python3%" $(which poetry)
 fi
 
