@@ -164,13 +164,14 @@ fi
 
 
 # Vscode extensions
+
 # checking existing
 readarray -t listing <<< $(code --list-extensions)
 # bash supports dicts !!
 # https://unix.stackexchange.com/a/177589
 declare -A installed
-# if listing is non-empty, populate
-if [[ ! -n listing ]]; then
+# if 'listing' is non-empty, populate 'installed' array-dict
+if [[ ! ${#listing[0]} -eq 0 ]]; then
     for key in "${!listing[@]}"
     do 
         installed[${listing[$key]}]="$key"
