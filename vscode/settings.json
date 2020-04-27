@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "search.showLineNumbers": true,
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.rulers": [80]
+}

@@ -1,5 +1,5 @@
+# i3
 - link:
-    # i3
     ~/.config/i3/config:
         force: true
         path: i3/config
@@ -7,9 +7,19 @@
     ~/.config/i3/brichange.sh: i3/brichange.sh
     ~/.config/i3/volchange.sh: i3/volchange.sh
     ~/.config/i3/status: i3/status
-    # ranger
+
+# ranger
+- link:
     ~/.config/ranger/bookmarks:
-        create: true
         path: ranger/bookmarks
-    # vim
+        create: true
+
+# vim
+- link:
     ~/.selected_editor: .selected_editor
+
+# vscode
+- link:
+    ~/.config/Code/User/settings.json:
+        path: vscode/settings.json
+        create: true

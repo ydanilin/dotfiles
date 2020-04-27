@@ -1,9 +1,24 @@
 #!/bin/bash
 
 
+# ********************************************
+#    Customization variables
+# ********************************************
+
 # This is a desired Python version to be installed
 PY_VERSION=3.7.7
 
+VSCODE_NEEDED_EXTENSIONS=(
+    Anjali.clipboard-history
+    HookyQR.beautify
+    ms-python.python
+    wmaurer.change-case
+)
+
+
+# ********************************************
+#    Begin
+# ********************************************
 
 sudo apt-get update
 
@@ -136,3 +151,29 @@ read pit SYS_PY_VERSION <<< "${sys_pit// / }"
         # echo -e "\e[1;31mWarning!\e[0m \e[31mPython executable of desired version ${PY_VERSION::-2} exists but not in alternatives!\e[0m"
     fi
 # fi
+
+
+# VSCODE
+if ! type -p code > /dev/null; then
+    # code itself
+    mkdir -p ~/distrib && cd ~/distrib
+    echo -e "\e[34mDownloading vscode...\e[0m"
+    curl -SL -o vscode-by-script.deb https://go.microsoft.com/fwlink/?LinkID=760868
+    sudo apt install ./vscode-by-script.deb
+
+    # extensions
+    # checking existing
+    readarray -t listing <<< $(code --list-extensions)
+    # bash supports dicts !!
+    # https://unix.stackexchange.com/a/177589
+    declare -A installed
+    for key in "${!listing[@]}"
+    do 
+    installed[${listing[$key]}]="$key"
+    done
+    # if not in installed list, install
+    for ext_name in "${VSCODE_NEEDED_EXTENSIONS[@]}"
+    do
+        [[ ! -n "${installed[$ext_name]}" ]] && code --install-extension $ext_name
+    done
+fi
