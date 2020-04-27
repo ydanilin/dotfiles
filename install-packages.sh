@@ -88,9 +88,11 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 
 
 # ranger
+# clipboard to be functional with Ranger
 if ! type -p xsel > /dev/null; then
     sudo apt -y install xsel
 fi
+# Ranger itself
 if ! type -p ranger > /dev/null; then
     sudo apt -y install ranger
 fi
@@ -164,7 +166,6 @@ fi
 
 
 # Vscode extensions
-
 # checking existing
 readarray -t listing <<< $(code --list-extensions)
 # bash supports dicts !!
@@ -183,3 +184,28 @@ for ext_name in "${VSCODE_NEEDED_EXTENSIONS[@]}"
 do
     [[ ! -n "${installed[$ext_name]}" ]] && code --install-extension $ext_name
 done
+
+
+# Docker-shmoker
+if ! type -p docker > /dev/null; then
+    if ! dpkg -s apt-transport-https >/dev/null 2>&1; then
+        sudo apt -y install apt-transport-https
+    fi
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    sudo apt update
+    # apt-cache policy docker-ce
+    sudo apt -y install docker-ce
+    # sudo systemctl status docker
+    sudo usermod -aG docker ${USER}
+    echo -e "\e[1;31mWarning! \e[0m\e[31mPlease reboot after Docker installation\e[0m"
+fi
+
+
+# Fonts
+if ! dpkg -s fontforge >/dev/null 2>&1; then
+    sudo apt -y install fontforge
+fi
+if ! dpkg -s ttf-mscorefonts-installer >/dev/null 2>&1; then
+    sudo apt -y install ttf-mscorefonts-installer
+fi
