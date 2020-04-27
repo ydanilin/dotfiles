@@ -160,20 +160,25 @@ if ! type -p code > /dev/null; then
     echo -e "\e[34mDownloading vscode...\e[0m"
     curl -SL -o vscode-by-script.deb https://go.microsoft.com/fwlink/?LinkID=760868
     sudo apt install ./vscode-by-script.deb
+fi
 
-    # extensions
-    # checking existing
-    readarray -t listing <<< $(code --list-extensions)
-    # bash supports dicts !!
-    # https://unix.stackexchange.com/a/177589
-    declare -A installed
+
+# Vscode extensions
+# checking existing
+readarray -t listing <<< $(code --list-extensions)
+# bash supports dicts !!
+# https://unix.stackexchange.com/a/177589
+declare -A installed
+# if listing is non-empty, populate
+if [[ ! -n listing ]]; then
     for key in "${!listing[@]}"
     do 
-    installed[${listing[$key]}]="$key"
-    done
-    # if not in installed list, install
-    for ext_name in "${VSCODE_NEEDED_EXTENSIONS[@]}"
-    do
-        [[ ! -n "${installed[$ext_name]}" ]] && code --install-extension $ext_name
+        installed[${listing[$key]}]="$key"
     done
 fi
+
+# install if not installed yet
+for ext_name in "${VSCODE_NEEDED_EXTENSIONS[@]}"
+do
+    [[ ! -n "${installed[$ext_name]}" ]] && code --install-extension $ext_name
+done

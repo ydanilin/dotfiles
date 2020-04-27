@@ -13,6 +13,7 @@
     ~/.config/ranger/bookmarks:
         path: ranger/bookmarks
         create: true
+        force: true
 
 # vim
 - link:
