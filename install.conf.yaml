@@ -24,3 +24,33 @@
     ~/.config/Code/User/settings.json:
         path: vscode/settings.json
         create: true
+
+# my fonts collection
+- link:
+    /usr/share/fonts/truetype/vista/:
+        glob: true
+        path: dist/fnt/vista/*.ttf
+        create: true
+        force: true
+        if: '[ -d "dist/fnt/vista" ]'
+    /usr/share/fonts/truetype/msttcorefonts/:
+        glob: true
+        path: dist/fnt/mstcore/*.ttf
+        create: true
+        force: true
+        if: '[ -d "dist/fnt/mstcore" ]'
+    /usr/share/fonts/wps-fonts/:
+        glob: true
+        path: dist/fnt/wps/*.ttf
+        create: true
+        force: true
+        if: '[ -d "dist/fnt/wps" ]'
+    # additional
+    /usr/share/fonts/truetype/hebrew/SILEOT.ttf:
+        path: dist/fonts/SILEOT.ttf
+        create: true
+        force: true
+    /usr/share/fonts/truetype/hebrew/SILEOTSR.ttf:
+        path: dist/fonts/SILEOTSR.ttf
+        create: true
+        force: true
