@@ -210,7 +210,7 @@ if ! dpkg -s ttf-mscorefonts-installer >/dev/null 2>&1; then
     sudo apt -y install ttf-mscorefonts-installer
 fi
 # My custom collection
-if [ ! -f "dist/fnt.zip" ]; then
+if [ ! -d "dist/fnt/" ]; then
     unzip -d dist/fnt/ dist/fnt.zip
     echo -e "\e[1;31mWarning! \e[0m\e[31mTo link fonts, do ./install with sudo\e[0m"
     echo -e "\e[31mDo fc-cache -f -v after that\e[0m"
