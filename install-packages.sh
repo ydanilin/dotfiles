@@ -216,3 +216,53 @@ if [ ! -d "dist/fnt/" ]; then
     echo -e "\e[31mDo fc-cache -f -v after that\e[0m"
 fi
 
+
+# Skype
+if ! type -p skypeforlinux > /dev/null; then
+    mkdir -p ~/distrib && cd ~/distrib
+    wget https://go.skype.com/skypeforlinux-64.deb -O skypeforlinux.deb
+    sudo apt -y install ./skypeforlinux.deb
+fi
+# Zoom
+if ! type -p zoom > /dev/null; then
+    mkdir -p ~/distrib && cd ~/distrib
+    wget https://zoom.us/client/latest/zoom_amd64.deb -O zoom.deb
+    sudo apt -y install ./zoom.deb
+fi
+
+
+# Gparted
+if ! type -p gparted > /dev/null; then
+    sudo apt -y install gparted
+fi
+
+
+# Keepassxc
+if ! type -p keepassxc > /dev/null; then
+    sudo apt -y install keepassxc
+fi
+
+
+# Codecs & video
+if ! dpkg -s ubuntu-restricted-extras >/dev/null 2>&1; then
+    sudo apt -y install ubuntu-restricted-extras
+fi
+
+if ! type -p vlc > /dev/null; then
+    sudo snap install vlc
+fi
+
+
+# Team Viewer
+if ! type -p teamviewer > /dev/null; then
+    sudo apt -y install libqt5qml5 libqt5quick5 libqt5webkit5 qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-dialogs qml-module-qtquick-window2 qml-module-qtquick-layouts
+    mkdir -p ~/distrib && cd ~/distrib
+    wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O teamviewer.deb
+    sudo dpkg -i ./teamviewer.deb
+fi
+
+
+# Inkscape
+if ! type -p inkscape > /dev/null; then
+    sudo apt -y install inkscape
+fi
