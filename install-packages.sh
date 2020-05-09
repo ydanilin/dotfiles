@@ -266,3 +266,12 @@ fi
 if ! type -p inkscape > /dev/null; then
     sudo apt -y install inkscape
 fi
+
+
+# Java stuff
+if ! dpkg -s openjdk-8-jre >/dev/null 2>&1; then
+    sudo apt -y install openjdk-8-jre
+fi
+if ! dpkg -s openjfx >/dev/null 2>&1; then
+    sudo apt -y install openjfx
+fi

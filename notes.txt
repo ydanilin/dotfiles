@@ -128,3 +128,7 @@ Depends:
  qml-module-qtquick-dialogs (>= 5.5)  | qt56-teamviewer
  qml-module-qtquick-window2 (>= 5.5)  | qt56-teamviewer
  qml-module-qtquick-layouts (>= 5.5)  | qt56-teamviewer
+
+
+poetry env use $(which python3.7)
+poetry install
