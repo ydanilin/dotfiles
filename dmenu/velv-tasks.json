@@ -10,5 +10,13 @@
   {
     "name": "Test curls shell",
     "command": "/home/yury/.dotfiles/dmenu/velvet-env-curls.sh"
+  },
+  {
+    "name": "Ranger",
+    "command": "/home/yury/.dotfiles/dmenu/ranger.sh"
+  },
+  {
+    "name": "Ganache",
+    "command": "/home/yury/.dotfiles/dmenu/ganache.sh"
   }
 ]

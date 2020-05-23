@@ -5,5 +5,12 @@
     "breadcrumbs.enabled": false,
     "search.showLineNumbers": true,
     "editor.copyWithSyntaxHighlighting": false,
-    "editor.rulers": [80]
+    "editor.rulers": [
+        80
+    ],
+    "vyper.analysis.onSave": false,
+    "vyper.decoration.enable": false,
+    "vyper.compile.onSave": false,
+    "extensions.ignoreRecommendations": true,
+    "workbench.editor.enablePreview": false
 }

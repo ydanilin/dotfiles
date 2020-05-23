@@ -24,6 +24,9 @@
     ~/.config/Code/User/settings.json:
         path: vscode/settings.json
         create: true
+    ~/.config/Code/User/snippets/shellscript.json:
+        path: vscode/shellscript.json
+        create: true
 
 # my fonts collection
 - link:

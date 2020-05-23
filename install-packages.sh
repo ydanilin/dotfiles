@@ -13,6 +13,7 @@ VSCODE_NEEDED_EXTENSIONS=(
     HookyQR.beautify
     ms-python.python
     wmaurer.change-case
+    tintinweb.vscode-vyper
 )
 
 
@@ -274,4 +275,26 @@ if ! dpkg -s openjdk-8-jre >/dev/null 2>&1; then
 fi
 if ! dpkg -s openjfx >/dev/null 2>&1; then
     sudo apt -y install openjfx
+fi
+
+
+# Node.js via nvm
+NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+NVM_VERSION=0.35.3
+if ! type -t nvm > /dev/null; then
+    mkdir -p ~/distrib && cd ~/distrib
+    curl -sL https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh -o install_nvm.sh
+    chmod +x ./install_nvm.sh
+    ./install_nvm.sh
+    NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
+
+NODE_VERSION=12.16.3
+# up to now, do not check for specific version
+if ! type -p node > /dev/null; then
+    nvm install $NODE_VERSION
 fi
