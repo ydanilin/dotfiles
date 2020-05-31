@@ -105,6 +105,19 @@ if ! type -p vim > /dev/null; then
 fi
 
 
+# stuff for brightness for notebook
+if sudo dmidecode -s system-product-name | grep VPCEA3M1R > /dev/null; then
+    if ! type -p light > /dev/null; then
+        mkdir -p ~/distrib && cd ~/distrib
+        curl -sSL -o light_1.2_amd64.deb https://github.com/haikarainen/light/releases/download/v1.2/light_1.2_amd64.deb
+        sudo dpkg -i light_1.2_amd64.deb
+        sudo usermod -a -G video $USER
+        sudo chgrp video /sys/class/backlight/radeon_bl0/brightness
+        sudo chmod 664 /sys/class/backlight/radeon_bl0/brightness
+    fi
+fi
+
+
 # System Python3 libraries
 # python3-distutils
 if ! dpkg -s python3-distutils >/dev/null 2>&1; then
