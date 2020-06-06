@@ -132,3 +132,7 @@ Depends:
 
 poetry env use $(which python3.7)
 poetry install
+
+Color scheme:
+https://ethanschoonover.com/solarized/
+... /dotfiles-astynax/.Xresources

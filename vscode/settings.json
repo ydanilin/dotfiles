@@ -12,5 +12,18 @@
     "vyper.decoration.enable": false,
     "vyper.compile.onSave": false,
     "extensions.ignoreRecommendations": true,
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "telemetry.enableTelemetry": false,
+    "python.dataScience.searchForJupyter": false,
+    "files.watcherExclude": {
+        "**/__pycache__/**": true,
+        "**/.vscode/**": true
+    },
+    "search.exclude": {
+        "**/__pycache__": true
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.vscode": true
+    }
 }
