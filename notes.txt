@@ -136,3 +136,10 @@ poetry install
 Color scheme:
 https://ethanschoonover.com/solarized/
 ... /dotfiles-astynax/.Xresources
+
+Update Firefox manually:
+firefox --version
+Go to https://www.mozilla.org/en-US/firefox/releases/ and check the latest
+sudo apt-get update
+sudo apt-get install firefox
+firefox --version again to check

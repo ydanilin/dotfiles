@@ -14,6 +14,7 @@ VSCODE_NEEDED_EXTENSIONS=(
     ms-python.python
     wmaurer.change-case
     tintinweb.vscode-vyper
+    nobuhito.printcode
 )
 
 
@@ -285,6 +286,12 @@ fi
 # Inkscape
 if ! type -p inkscape > /dev/null; then
     sudo apt -y install inkscape
+fi
+
+
+# GIMP
+if ! type -p gimp > /dev/null; then
+    sudo apt -y install gimp
 fi
 
 

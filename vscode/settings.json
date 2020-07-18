@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Solarized Light",
     "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
@@ -24,6 +24,7 @@
     },
     "files.exclude": {
         "**/__pycache__": true,
+        "**/.idea": true,
         "**/.vscode": true
     }
 }
