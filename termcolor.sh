@@ -37,7 +37,7 @@ S_green='#859900'
 S_base03='#FDF6E3'
 S_base02='#EEE8D5'
 S_base01='#93A1A1'
-S_base00='#839496'
+S_base00='#626262' #839496
 S_base0='#657B83'
 S_base1='#586E75'
 S_base2='#073642'
@@ -59,7 +59,7 @@ do
     case $action in
         "Solarized Light" )
             background=$S_base03
-            foreground=$S_base0
+            foreground=$S_base00
 
             color00=$S_base02
             color01=$S_red

@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Solarized Light",
     "editor.fontSize": 16,
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
@@ -26,5 +25,6 @@
         "**/__pycache__": true,
         "**/.idea": true,
         "**/.vscode": true
-    }
+    },
+    "workbench.colorTheme": "Solarized Light"
 }
