@@ -15,6 +15,7 @@ VSCODE_NEEDED_EXTENSIONS=(
     wmaurer.change-case
     tintinweb.vscode-vyper
     nobuhito.printcode
+    janisdd.vscode-edit-csv
 )
 
 
@@ -223,6 +224,11 @@ if ! type -p docker > /dev/null; then
 fi
 
 
+# Net-tools
+if ! dpkg -s net-tools >/dev/null 2>&1; then
+  sudo apt -y install net-tools
+fi
+
 # Fonts
 if ! dpkg -s fontforge >/dev/null 2>&1; then
     sudo apt -y install fontforge
@@ -270,7 +276,7 @@ if ! dpkg -s ubuntu-restricted-extras >/dev/null 2>&1; then
 fi
 
 if ! type -p vlc > /dev/null; then
-    sudo snap install vlc
+    sudo apt -y install --no-install-recommends vlc
 fi
 
 
@@ -285,8 +291,37 @@ fi
 
 # Inkscape
 if ! type -p inkscape > /dev/null; then
+    sudo add-apt-repository ppa:inkscape.dev/stable
+    sudo apt update
     sudo apt -y install inkscape
 fi
+
+# Inkscape circuit symbols
+MADE_EASY_DIR=~/.config/inkscape/extensions/inkscapeMadeEasy
+MADE_EASY_GIT=https://raw.githubusercontent.com/fsmMLK/inkscapeMadeEasy/master/latest
+CIRCUIT_DIR=~/.config/inkscape/extensions/circuitSymbols
+CIRCUIT_GIT=https://raw.githubusercontent.com/fsmMLK/inkscapeCircuitSymbols/master/latest
+
+mkdir -p $MADE_EASY_DIR
+wget --quiet --show-progress -nc -P $MADE_EASY_DIR "$MADE_EASY_GIT/basicLatexPackages.tex"
+wget --quiet --show-progress -nc -P $MADE_EASY_DIR "$MADE_EASY_GIT/inkscapeMadeEasy_Base.py"
+wget --quiet --show-progress -nc -P $MADE_EASY_DIR "$MADE_EASY_GIT/inkscapeMadeEasy_Draw.py"
+wget --quiet --show-progress -nc -P $MADE_EASY_DIR "$MADE_EASY_GIT/inkscapeMadeEasy_Plot.py"
+sed -i -e 's/# useLatex=False/useLatex=False/g' $MADE_EASY_DIR/inkscapeMadeEasy_Draw.py
+
+mkdir -p $CIRCUIT_DIR
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/circuitSymbols.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/circuitSymbolsPreamble.tex"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/circuitSymbols_general.inx"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/circuitSymbols_semiconductors.inx"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawAmpOp.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawArrows.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawDiodes.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawRLC.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawSignals.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawSources.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawSwitches.py"
+wget --quiet --show-progress -nc -P $CIRCUIT_DIR "$CIRCUIT_GIT/drawTransistors.py"
 
 
 # GIMP
@@ -323,4 +358,31 @@ NODE_VERSION=12.16.3
 # up to now, do not check for specific version
 if ! type -p node > /dev/null; then
     nvm install $NODE_VERSION
+fi
+
+
+# fbreader for epub
+if ! type -p fbreader > /dev/null; then
+    sudo apt -y install fbreader
+fi
+
+
+# gnuplot
+if ! type -p gnuplot > /dev/null; then
+    sudo apt -y install gnuplot
+fi
+
+
+# celestia
+if ! type -p celestia > /dev/null; then
+    sudo wget -O- https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
+    echo 'deb https://dl.bintray.com/celestia/releases-deb bionic universe' | sudo tee -a /etc/apt/sources.list.d/celestia-bintray.list
+    sudo apt update
+    sudo apt -y install celestia
+fi
+
+
+# sshfs
+if ! type -p sshfs > /dev/null; then
+    sudo apt -y install sshfs
 fi

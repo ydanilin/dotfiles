@@ -13,7 +13,6 @@
     "extensions.ignoreRecommendations": true,
     "workbench.editor.enablePreview": false,
     "telemetry.enableTelemetry": false,
-    "python.dataScience.searchForJupyter": false,
     "files.watcherExclude": {
         "**/__pycache__/**": true,
         "**/.vscode/**": true
@@ -26,5 +25,14 @@
         "**/.idea": true,
         "**/.vscode": true
     },
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "editor.renderWhitespace": "none",
+    "jupyter.searchForJupyter": false,
+    "python.showStartPage": false,
+    "jupyter.allowImportFromNotebook": false,
+    "jupyter.allowInput": false,
+    "jupyter.collapseCellInputCodeByDefault": false,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "python.experiments.enabled": false,
+    "window.zoomLevel": 0
 }

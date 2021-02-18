@@ -16,6 +16,10 @@
     "command": "/home/yury/.dotfiles/dmenu/ranger.sh"
   },
   {
+    "name": "PyCharm",
+    "command": "/home/yury/.dotfiles/dmenu/pycharm.sh"
+  },
+  {
     "name": "Ganache",
     "command": "/home/yury/.dotfiles/dmenu/ganache.sh"
   }
