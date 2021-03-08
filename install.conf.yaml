@@ -14,6 +14,9 @@
         path: ranger/bookmarks
         create: true
         force: true
+    ~/.config/ranger/rifle.conf:
+        path: ranger/rifle.conf
+        force: true
 
 # vim
 - link:

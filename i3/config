@@ -41,6 +41,7 @@ focus_follows_mouse no
 for_window [class="^Code$"] border pixel 1
 for_window [class="^keepassxc$"] floating enable
 for_window [class="^jetbrains-pycharm-ce$"] border pixel 1
+for_window [class="^Gnome-terminal$"] border pixel 1
 
 assign [class="^Code$"] "2"
 assign [class="^jetbrains-pycharm-ce$"] "2"
