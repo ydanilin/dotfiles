@@ -30,6 +30,9 @@
     ~/.config/Code/User/snippets/shellscript.json:
         path: vscode/shellscript.json
         create: true
+    ~/.config/Code/User/snippets/python.json:
+        path: vscode/python.json
+        create: true
 
 # my fonts collection
 - link:
