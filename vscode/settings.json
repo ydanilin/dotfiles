@@ -25,7 +25,7 @@
         "**/.idea": true,
         "**/.vscode": true
     },
-    "workbench.colorTheme": "Qiita",
+    "workbench.colorTheme": "Solarized Dark",
     "editor.renderWhitespace": "none",
     "jupyter.searchForJupyter": false,
     "python.showStartPage": false,
@@ -39,6 +39,10 @@
     "workbench.editorAssociations": [
         {
             "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        },
+        {
+            "viewType": "jupyter-notebook",
             "filenamePattern": "*.ipynb"
         }
     ]

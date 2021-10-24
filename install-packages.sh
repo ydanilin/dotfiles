@@ -16,6 +16,7 @@ VSCODE_NEEDED_EXTENSIONS=(
     tintinweb.vscode-vyper
     nobuhito.printcode
     janisdd.vscode-edit-csv
+    marioschwalbe.gnuplot
 )
 
 
