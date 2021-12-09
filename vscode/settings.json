@@ -25,7 +25,7 @@
         "**/.idea": true,
         "**/.vscode": true
     },
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Borealis",
     "editor.renderWhitespace": "none",
     "jupyter.searchForJupyter": false,
     "python.showStartPage": false,
@@ -35,7 +35,7 @@
     "javascript.updateImportsOnFileMove.enabled": "never",
     "python.experiments.enabled": false,
     "window.zoomLevel": 0,
-    "python.pythonPath": "/home/yury/.cache/pypoetry/virtualenvs/meandra-E1xfe9UW-py3.7/bin/python",
+    "python.pythonPath": "",
     "workbench.editorAssociations": [
         {
             "viewType": "jupyter.notebook.ipynb",
@@ -45,5 +45,6 @@
             "viewType": "jupyter-notebook",
             "filenamePattern": "*.ipynb"
         }
-    ]
+    ],
+    "workbench.activityBar.visible": false
 }

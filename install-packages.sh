@@ -17,6 +17,7 @@ VSCODE_NEEDED_EXTENSIONS=(
     nobuhito.printcode
     janisdd.vscode-edit-csv
     marioschwalbe.gnuplot
+    eckertalex.borealis
 )
 
 
@@ -292,7 +293,7 @@ fi
 
 # Inkscape
 if ! type -p inkscape > /dev/null; then
-    sudo add-apt-repository ppa:inkscape.dev/stable
+    sudo add-apt-repository -y ppa:inkscape.dev/stable
     sudo apt update
     sudo apt -y install inkscape
 fi
