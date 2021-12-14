@@ -375,15 +375,6 @@ if ! type -p gnuplot > /dev/null; then
 fi
 
 
-# celestia
-if ! type -p celestia > /dev/null; then
-    sudo wget -O- https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
-    echo 'deb https://dl.bintray.com/celestia/releases-deb bionic universe' | sudo tee -a /etc/apt/sources.list.d/celestia-bintray.list
-    sudo apt update
-    sudo apt -y install celestia
-fi
-
-
 # sshfs
 if ! type -p sshfs > /dev/null; then
     sudo apt -y install sshfs

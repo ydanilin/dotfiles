@@ -36,15 +36,8 @@
     "python.experiments.enabled": false,
     "window.zoomLevel": 0,
     "python.pythonPath": "",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        },
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "workbench.activityBar.visible": false
 }
